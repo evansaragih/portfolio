@@ -3,348 +3,464 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Evan Himawan Saragih — UI/UX Designer</title>
-  <meta name="description" content="UI/UX Designer focused on system thinking, design consistency, and scalable design systems." />
+  <title>Evan Himawan Saragih — Product &amp; UI/UX Designer</title>
+  <meta name="description" content="UI/UX Designer with experience across iOS, Android, and Web platforms. Focused on system thinking, design consistency, and scalable design systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <header class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <img src="assets/avatar.jpg" alt="Evan" class="nav-avatar" onerror="this.style.display='none'" />
-        <span>EVAN</span>
-      </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#blog" class="nav-link">Blog</a>
-        <a href="#contact" class="nav-link nav-cta">Contact Me</a>
+  <!-- ===================== NAVBAR ===================== -->
+  <div class="navbar-wrapper" id="navbarWrapper">
+    <div class="navbar-row">
+
+      <!-- Logo pill -->
+      <div class="nav-pill nav-pill-logo">
+        <img
+          src="https://www.figma.com/api/mcp/asset/e2549b5a-6df2-48ae-b702-c21924a832d5"
+          alt="Evan logo"
+          class="nav-logo-img"
+        />
+        <span class="nav-logo-text">EVAN</span>
+      </div>
+
+      <!-- Nav pill (desktop) -->
+      <nav class="nav-pill nav-pill-links" id="navPillLinks" aria-label="Main navigation">
+        <a href="#home"     class="nav-link active" data-section="home">Home</a>
+        <a href="#projects" class="nav-link"         data-section="projects">Projects</a>
+        <a href="#blog"     class="nav-link"         data-section="blog">Blog</a>
+        <a href="#contact"  class="nav-link nav-link-cta">Contact Me</a>
       </nav>
-      <div class="nav-socials">
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+
+      <!-- Social pill -->
+      <div class="nav-pill nav-pill-social">
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-link">
+          <!-- Instagram -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
         </a>
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="nav-social-link">
+          <!-- LinkedIn -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
         </a>
-        <a href="mailto:evan@example.com" aria-label="Email">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="https://behance.net" target="_blank" rel="noopener" aria-label="Behance" class="nav-social-link">
+          <!-- Behance -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.4.836 2.177 2.012 2.177.939 0 1.52-.435 1.744-1.148h3zm-4.87-4c-.023-1.188-.629-1.895-1.787-1.895-1.171 0-1.894.732-2.016 1.895h3.803zM8.462 10.512c0-2.074-1.56-3.512-4.123-3.512H1v12h3.46c2.76 0 4.494-1.453 4.494-3.706 0-1.34-.716-2.367-1.862-2.843.834-.414 1.37-1.264 1.37-1.939zm-4.386-.558c.864 0 1.386.468 1.386 1.224 0 .758-.522 1.226-1.386 1.226H4.044V9.954h.032zm.128 5.808H4.044v-2.546h.16c.896 0 1.46.476 1.46 1.27 0 .8-.564 1.276-1.46 1.276z"/>
+          </svg>
         </a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+
+      <!-- Hamburger (mobile only) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+
     </div>
-  </header>
+
+    <!-- Mobile dropdown menu -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="#home"     class="mobile-link active">Home</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#blog"     class="mobile-link">Blog</a>
+      <a href="#contact"  class="mobile-link">Contact Me</a>
+    </nav>
+  </div>
 
   <main>
 
-    <!-- HERO -->
+    <!-- ===================== HERO ===================== -->
     <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-greeting">
-            <img src="assets/avatar.jpg" alt="Evan" class="hero-avatar" onerror="this.style.display='none'" />
-            <span>I'm Evan 👋</span>
-          </div>
-          <h1 class="hero-title">
-            UI/UX Designer
-            <span class="hero-tools">
-              <span class="tool-badge figma">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4zm0-20H4C1.792 4 0 5.792 0 8s1.792 4 4 4h4V4zm0 8H4c-2.208 0-4 1.792-4 4s1.792 4 4 4h4v-8zm8-8h-4v8h4c2.208 0 4-1.792 4-4s-1.792-4-4-4zm0 10c-2.208 0-4 1.792-4 4s1.792 4 4 4 4-1.792 4-4-1.792-4-4-4z"/></svg>
-              </span>
-              <span class="tool-badge pd">PD</span>
-            </span>
-          </h1>
-          <p class="hero-desc">Designer who designs how products feel and builds how they work, end to end. Focused on system thinking, design consistency, and scalable design systems.</p>
-          <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary">Contact Me</a>
-            <a href="#projects" class="btn btn-secondary">See Projects</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-profile-card">
-            <img src="assets/profile.jpg" alt="Evan Himawan Saragih" class="hero-photo" onerror="this.src='https://ui-avatars.com/api/?name=Evan+Saragih&size=300&background=1a1a2e&color=fff'" />
-            <div class="hero-card-info">
-              <span class="hero-card-name">EVAN HIMAWAN</span>
-              <span class="hero-card-role">UI/UX DESIGNER &amp; PRODUCT DESIGNER</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-left">
 
-      <!-- Project preview strip -->
-      <div class="hero-gallery">
-        <div class="gallery-item">
-          <img src="assets/project1.jpg" alt="Project preview" onerror="this.parentElement.classList.add('gallery-placeholder')" />
-        </div>
-        <div class="gallery-item">
-          <img src="assets/project2.jpg" alt="Project preview" onerror="this.parentElement.classList.add('gallery-placeholder')" />
-        </div>
-        <div class="gallery-item">
-          <img src="assets/project3.jpg" alt="Project preview" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+            <!-- Row 1: Avatar + name + wave -->
+            <div class="hero-row-one">
+              <img
+                src="https://www.figma.com/api/mcp/asset/de9f883f-0211-4a62-a3cf-8f5189077b35"
+                alt="Evan avatar"
+                class="hero-avatar"
+              />
+              <h1 class="hero-name">I'm Evan</h1>
+              <span class="hero-wave" aria-hidden="true">👋🏻</span>
+            </div>
+
+            <!-- Row 2: Role title + portrait photos -->
+            <div class="hero-row-two">
+              <p class="hero-title">Product and UI/UX Designer</p>
+              <div class="hero-portraits">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/46479076-3c0a-44b4-a477-0ca52d6ca8d2"
+                  alt="Evan portrait 1"
+                  class="hero-portrait"
+                />
+                <img
+                  src="https://www.figma.com/api/mcp/asset/1f44b935-dcc0-4a04-8b58-e15a078d17b9"
+                  alt="Evan portrait 2"
+                  class="hero-portrait"
+                />
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="hero-desc">
+              UI/UX Designer with experience across iOS, Android, and Web platforms.
+              Focused on system thinking, design consistency, and scalable design systems.
+            </p>
+
+            <!-- CTA buttons -->
+            <div class="hero-ctas">
+              <a href="#contact" class="btn btn-primary">Contact Me</a>
+              <a href="#projects" class="btn btn-secondary">See Projects</a>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-scroll-wrap">
+        <div class="projects-track">
+
+          <article class="project-card">
+            <img src="https://www.figma.com/api/mcp/asset/f0d0aeef-74bc-4e6e-8dee-f9f6e401ad98" alt="Airple Aircon" class="project-img" />
+            <div class="project-overlay"></div>
+            <div class="project-info">
+              <p class="project-name">Airple Aircon</p>
+              <p class="project-sub">Service Operations Ecosystem</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://www.figma.com/api/mcp/asset/7f21066f-6e43-4ecd-8644-6b428460464b" alt="iHome" class="project-img" />
+            <div class="project-overlay"></div>
+            <div class="project-info">
+              <p class="project-name">iHome</p>
+              <p class="project-sub">Residential Operations Platform</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://www.figma.com/api/mcp/asset/0ac5032b-0cd5-44ba-9f18-6c5ce8427aee" alt="J.City" class="project-img" />
+            <div class="project-overlay"></div>
+            <div class="project-info">
+              <p class="project-name">J.City</p>
+              <p class="project-sub">Service Operations Ecosystem</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://www.figma.com/api/mcp/asset/5e4d43f0-1d6a-4a0f-8c75-107593710115" alt="Permata Medical" class="project-img" />
+            <div class="project-overlay"></div>
+            <div class="project-info">
+              <p class="project-name">Permata Medical</p>
+              <p class="project-sub">Residential Operations Platform</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://www.figma.com/api/mcp/asset/dc64e183-1912-4225-9b5d-6b9c8d1795a8" alt="Blaze CRM" class="project-img" />
+            <div class="project-overlay"></div>
+            <div class="project-info">
+              <p class="project-name">Blaze CRM</p>
+              <p class="project-sub">Service Operations Ecosystem</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://www.figma.com/api/mcp/asset/4738c754-bb7a-4a58-a1ac-112a1a2add3e" alt="Rustic Padel" class="project-img" />
+            <div class="project-overlay"></div>
+            <div class="project-info">
+              <p class="project-name">Rustic Padel</p>
+              <p class="project-sub">Residential Operations Platform</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
     <section class="about" id="about">
       <div class="container">
         <div class="about-grid">
-          <div class="about-left">
-            <div class="about-photo-wrap">
-              <img src="assets/about.jpg" alt="Evan Himawan Saragih" class="about-photo" onerror="this.src='https://ui-avatars.com/api/?name=Evan+Saragih&size=300&background=2d2d2d&color=fff'" />
+
+          <!-- Left card -->
+          <div class="about-left-card">
+            <img
+              src="https://www.figma.com/api/mcp/asset/de9f883f-0211-4a62-a3cf-8f5189077b35"
+              alt="Evan Himawan Saragih"
+              class="about-photo"
+            />
+            <p class="about-available">Available for work</p>
+            <h3 class="about-name">Evan Himawan Saragih</h3>
+            <p class="about-role">Product - UI/UX Designer Based in Jakarta, Indonesia 🇮🇩</p>
+            <div class="about-social-row">
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="about-social-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="about-social-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+              <a href="https://behance.net" target="_blank" rel="noopener" aria-label="Behance" class="about-social-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.4.836 2.177 2.012 2.177.939 0 1.52-.435 1.744-1.148h3zm-4.87-4c-.023-1.188-.629-1.895-1.787-1.895-1.171 0-1.894.732-2.016 1.895h3.803zM8.462 10.512c0-2.074-1.56-3.512-4.123-3.512H1v12h3.46c2.76 0 4.494-1.453 4.494-3.706 0-1.34-.716-2.367-1.862-2.843.834-.414 1.37-1.264 1.37-1.939zm-4.386-.558c.864 0 1.386.468 1.386 1.224 0 .758-.522 1.226-1.386 1.226H4.044V9.954h.032zm.128 5.808H4.044v-2.546h.16c.896 0 1.46.476 1.46 1.27 0 .8-.564 1.276-1.46 1.276z"/>
+                </svg>
+              </a>
             </div>
-            <div class="about-card">
-              <span class="availability-badge">● Available for work</span>
-              <h3 class="about-name">Evan Himawan Saragih</h3>
-              <p class="about-role">Product · UI/UX Designer · Based in Jakarta, Indonesia 🇮🇩</p>
-              <div class="about-social-row">
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="mailto:evan@example.com" aria-label="Email" class="social-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </a>
-                <a href="#contact" class="btn btn-primary btn-sm">Contact Me</a>
-              </div>
-            </div>
+            <a href="#contact" class="btn btn-primary about-cta-btn">Contact Me</a>
           </div>
 
+          <!-- Right column -->
           <div class="about-right">
-            <p class="about-bio">I started as a UI/UX Designer and gradually evolved into a Product &amp; Delivery Manager, taking ownership of both design execution and product leadership across multiple concurrent digital platforms.</p>
-            <p class="about-bio">My experience spans end-to-end product development from discovery and information architecture to delivery optimization, and operational enhancement.</p>
-            <p class="about-bio">Over time, I moved beyond interface design into system thinking, business logic structuring, and cross-functional delivery leadership.</p>
+            <p class="about-bio">
+              I started as a UI/UX Designer and gradually evolved into a Product &amp; Delivery Manager,
+              taking ownership of both design execution and product leadership across multiple concurrent digital platforms.
+            </p>
+            <p class="about-bio">
+              My experience spans end-to-end product development — from discovery and information architecture
+              to delivery optimization and operational enhancement.
+            </p>
+            <p class="about-bio">
+              Over time, I moved beyond interface design into system thinking, business logic structuring,
+              and cross-functional delivery leadership.
+            </p>
+            <div class="about-divider"></div>
             <div class="skills-wrap">
               <span class="skill-tag">Product Design</span>
-              <span class="skill-tag">UI Design</span>
-              <span class="skill-tag">Branding</span>
-              <span class="skill-tag">Interaction Design</span>
               <span class="skill-tag">UX Design</span>
+              <span class="skill-tag">UI Design</span>
               <span class="skill-tag">Framer</span>
+              <span class="skill-tag">Branding</span>
               <span class="skill-tag">Webflow</span>
+              <span class="skill-tag">Interaction Design</span>
               <span class="skill-tag">UX Research</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- WORK EXPERIENCE -->
+    <!-- ===================== WORK EXPERIENCE ===================== -->
     <section class="experience" id="experience">
       <div class="container">
         <div class="experience-grid">
+
+          <!-- Left: experience cards -->
           <div class="experience-left">
-            <div class="experience-list">
 
-              <div class="exp-item">
-                <div class="exp-logo exp-logo-orange">N</div>
-                <div class="exp-info">
-                  <h4>UI/UX Designer</h4>
-                  <p>PT. Root Nusantara Gonrifer</p>
-                  <div class="exp-meta">
-                    <span class="exp-location">🇮🇩 Indonesia · Full-time · Framer</span>
-                    <span class="exp-date">Jan 2023 – Present</span>
-                  </div>
+            <div class="exp-card">
+              <div class="exp-card-top">
+                <img src="https://www.figma.com/api/mcp/asset/4ac013f7-2869-4ecb-a116-2dd2bda35c3c" alt="Hyge Pte. Ltd." class="exp-logo" />
+                <div class="exp-text">
+                  <p class="exp-role">Project Manager</p>
+                  <p class="exp-company">Hyge Pte. Ltd.</p>
                 </div>
               </div>
-
-              <div class="exp-item">
-                <div class="exp-logo exp-logo-blue">P</div>
-                <div class="exp-info">
-                  <h4>Project and Product Manager</h4>
-                  <p>Pigge Pte. Ltd.</p>
-                  <div class="exp-meta">
-                    <span class="exp-location">🇸🇬 Singapore · Full-time</span>
-                    <span class="exp-date">Aug 2023 – Mar 2024</span>
-                  </div>
-                </div>
+              <div class="exp-card-bottom">
+                <span class="exp-location">🇸🇬 Singapore • Remote</span>
+                <span class="exp-date">Aug 2024 - Mar 2026</span>
               </div>
-
-              <div class="exp-item">
-                <div class="exp-logo exp-logo-blue">P</div>
-                <div class="exp-info">
-                  <h4>UI/UX Designer</h4>
-                  <p>Pigge Pte. Ltd.</p>
-                  <div class="exp-meta">
-                    <span class="exp-location">🇸🇬 Singapore · Full-time</span>
-                    <span class="exp-date">Jan 2023 – Aug 2024</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-logo exp-logo-green">E</div>
-                <div class="exp-info">
-                  <h4>Educational Video Editor</h4>
-                  <p>PT. Timsour Indonesia</p>
-                  <div class="exp-meta">
-                    <span class="exp-location">🇮🇩 Indonesia · Full-time</span>
-                    <span class="exp-date">Apr 2022 – Sep 2022</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-logo exp-logo-purple">W</div>
-                <div class="exp-info">
-                  <h4>Web Dev and SNS Designer</h4>
-                  <p>PT. The Silver Merien</p>
-                  <div class="exp-meta">
-                    <span class="exp-location">🇮🇩 Indonesia · Remote</span>
-                    <span class="exp-date">Jan 2015 – May 2017</span>
-                  </div>
-                </div>
-              </div>
-
             </div>
+
+            <div class="exp-card">
+              <div class="exp-card-top">
+                <img src="https://www.figma.com/api/mcp/asset/4ac013f7-2869-4ecb-a116-2dd2bda35c3c" alt="Hyge Pte. Ltd." class="exp-logo" />
+                <div class="exp-text">
+                  <p class="exp-role">UI/UX Designer</p>
+                  <p class="exp-company">Hyge Pte. Ltd.</p>
+                </div>
+              </div>
+              <div class="exp-card-bottom">
+                <span class="exp-location">🇸🇬 Singapore • Remote</span>
+                <span class="exp-date">Jan 2023 - Aug 2024</span>
+              </div>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-top">
+                <img src="https://www.figma.com/api/mcp/asset/47b9fca8-4156-4df1-a707-13d8ef1d6232" alt="PT. Timedoor Indonesia" class="exp-logo" />
+                <div class="exp-text">
+                  <p class="exp-role">Educational Video Editor</p>
+                  <p class="exp-company">PT. Timedoor Indonesia</p>
+                </div>
+              </div>
+              <div class="exp-card-bottom">
+                <span class="exp-location">🇮🇩 Indonesia • Hybrid</span>
+                <span class="exp-date">Apr 2021 - Sep 2022</span>
+              </div>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-top">
+                <img src="https://www.figma.com/api/mcp/asset/7287e37b-c030-42e9-a7c0-c3e3ed5111dd" alt="PT. Tria Binar Meraki" class="exp-logo" />
+                <div class="exp-text">
+                  <p class="exp-role">Social Media Designer</p>
+                  <p class="exp-company">PT. Tria Binar Meraki</p>
+                </div>
+              </div>
+              <div class="exp-card-bottom">
+                <span class="exp-location">🇮🇩 Indonesia • Freelance</span>
+                <span class="exp-date">Jan 2021 - May 2021</span>
+              </div>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-top">
+                <img src="https://www.figma.com/api/mcp/asset/7287e37b-c030-42e9-a7c0-c3e3ed5111dd" alt="PT. Tria Binar Meraki" class="exp-logo" />
+                <div class="exp-text">
+                  <p class="exp-role">Web Developer</p>
+                  <p class="exp-company">PT. Tria Binar Meraki</p>
+                </div>
+              </div>
+              <div class="exp-card-bottom">
+                <span class="exp-location">🇮🇩 Indonesia • Freelance</span>
+                <span class="exp-date">Aug 2020 - Sep 2020</span>
+              </div>
+            </div>
+
           </div>
 
+          <!-- Right: heading + photo grid -->
           <div class="experience-right">
-            <h2 class="section-title">Work Experience</h2>
-            <p class="section-sub">From Designer to Project Manager. From crafting interfaces to leading teams. From focusing on pixels to managing people, timelines, and delivery.</p>
-            <div class="exp-photos">
-              <div class="exp-photo-row">
-                <div class="exp-photo-placeholder"></div>
-                <div class="exp-photo-placeholder"></div>
-                <div class="exp-photo-placeholder"></div>
-              </div>
-              <div class="exp-photo-row">
-                <div class="exp-photo-placeholder"></div>
-                <div class="exp-photo-placeholder"></div>
-                <div class="exp-photo-placeholder"></div>
-              </div>
-              <div class="exp-photo-row">
-                <div class="exp-photo-placeholder"></div>
-                <div class="exp-photo-placeholder"></div>
-                <div class="exp-photo-placeholder"></div>
+            <div class="experience-right-card">
+              <h2 class="section-title">Work Experience</h2>
+              <p class="section-sub">
+                From Designer to Project Manager. From crafting interfaces to leading teams.
+                From pixels to people, timelines, and delivery.
+              </p>
+
+              <div class="work-photos-grid">
+                <img src="https://www.figma.com/api/mcp/asset/a399bd97-7c83-4aad-b43f-2d37fa4ace29" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/e262823b-00db-4f5d-b68b-461d207ab5a5" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/af55a8c3-21eb-4fab-b6b4-0269c24e4227" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/78878edb-8c40-4ecd-a444-2f065669c4a4" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/71dbb96d-0a4e-4179-906f-55832108f6fd" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/b18ff8b7-92e2-43cf-901b-49999e50758f" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/34fd780c-eee2-4179-a614-a5044bb968dd" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/129a2789-a6cd-42b5-90ce-2c926b13561c" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/51ff6e04-d2dc-4c2c-b8bd-c072ba14960d" alt="Work photo"  class="work-photo" />
+                <img src="https://www.figma.com/api/mcp/asset/57e89b0a-e8c0-46ef-806d-d739740e77db" alt="Work photo"  class="work-photo" />
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- BLOG -->
+    <!-- ===================== BLOG ===================== -->
     <section class="blog" id="blog">
       <div class="container">
-        <div class="section-header">
+        <div class="blog-header">
           <h2 class="section-title">Blog</h2>
-          <p class="section-sub">I share my design thinking, curations, aesthetic taste, and industry observations through long-form essays on here.</p>
+          <p class="section-sub">
+            I share my design thinking, curations, aesthetic taste, and industry observations through long-form essays.
+          </p>
         </div>
         <div class="blog-grid">
-          <article class="blog-card blog-card-dark">
-            <div class="blog-tag">Personal Notes</div>
-            <h3>Why I'm Becoming a Product Designer, Sometimes you need to evolve beyond what's comfortable.</h3>
-            <div class="blog-images">
-              <div class="blog-img-placeholder"></div>
-              <div class="blog-img-placeholder"></div>
-              <div class="blog-img-placeholder"></div>
+
+          <article class="blog-card">
+            <div class="blog-img-wrap">
+              <img src="https://www.figma.com/api/mcp/asset/bb3ae225-fbf2-424e-8d68-6bf621617dd4" alt="Why I'm Becoming a Product Designer" class="blog-img" />
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-tag">Personal Notes</p>
+              <h3 class="blog-title">Why I'm Becoming a Product Designer</h3>
+              <p class="blog-excerpt">Sometimes you need to evolve beyond what's comfortable.</p>
             </div>
           </article>
-          <article class="blog-card blog-card-light">
-            <div class="blog-tag">Personal Notes</div>
-            <h3>My journey began in a different kind of design. A bit about Me</h3>
-            <div class="blog-images">
-              <div class="blog-img-placeholder"></div>
-              <div class="blog-img-placeholder"></div>
-              <div class="blog-img-placeholder"></div>
+
+          <article class="blog-card">
+            <div class="blog-img-wrap">
+              <img src="https://www.figma.com/api/mcp/asset/07a6b303-82e2-4387-89ec-8636099d109c" alt="A Bit About Me" class="blog-img" />
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-tag">Personal Notes</p>
+              <h3 class="blog-title">A Bit About Me</h3>
+              <p class="blog-excerpt">My journey began in a different kind of design.</p>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ===================== FAQ ===================== -->
     <section class="faq" id="faq">
       <div class="container">
         <div class="faq-header">
           <h2 class="section-title">Frequently Asked Questions</h2>
-          <p class="section-sub">Find quick answer to the most common questions about the services offered</p>
+          <p class="section-sub">Find quick answers to the most common questions about the services offered.</p>
         </div>
         <div class="faq-list">
 
-          <div class="faq-item active">
-            <button class="faq-question" aria-expanded="true">
-              <span>What services do you offer?</span>
-              <span class="faq-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <p>I specialize in web design, app design, branding, UI/UX, and Framer development, creating modern, user-friendly experiences tailored to your needs.</p>
-            </div>
+          <div class="faq-item faq-cream">
+            <p class="faq-q">What services do you offer?</p>
+            <p class="faq-a">I specialize in web design, app design, branding, UI/UX, and Framer development, creating modern, user-friendly experiences tailored to your needs.</p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>Do you provide revisions?</span>
-              <span class="faq-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes! I offer two free rounds of revisions to ensure the final design meets your vision perfectly. Additional revision are available if needed.</p>
-            </div>
+          <div class="faq-item faq-white">
+            <p class="faq-q">Do you provide revisions?</p>
+            <p class="faq-a">Yes! I offer two free rounds of revisions to ensure the final design meets your vision perfectly. Additional revisions are available if needed.</p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>How do I start working with you?</span>
-              <span class="faq-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <p>Simply reach out through my contact page, and we will discuss your project, goals, and timeline before getting started.</p>
-            </div>
+          <div class="faq-item faq-cream">
+            <p class="faq-q">How do I start working with you?</p>
+            <p class="faq-a">Simply reach out through my contact page, and we'll discuss your project, goals, and timeline before getting started.</p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>What is your pricing structure?</span>
-              <span class="faq-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <p>Pricing depends on the project scope. Contact me for a custom quote based on your needs and budget.</p>
-            </div>
+          <div class="faq-item faq-white">
+            <p class="faq-q">What is your pricing structure?</p>
+            <p class="faq-a">Pricing depends on the project scope. Contact me for a custom quote based on your needs and budget.</p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>How long does a project typically take?</span>
-              <span class="faq-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <p>Timelines vary based on project complexity, but most designs take 1–3 weeks, while full websites take 3–6 weeks.</p>
-            </div>
+          <div class="faq-item faq-cream">
+            <p class="faq-q">How long does a project typically take?</p>
+            <p class="faq-a">Timelines vary based on project complexity, but most designs take 1–3 weeks, while full websites take 3–6 weeks.</p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ===================== CTA ===================== -->
     <section class="cta-section" id="contact">
       <div class="container">
-        <div class="cta-box">
-          <h2>Tell Me About Your Next Creative Project</h2>
-          <p>Let's create captivating digital experiences that engage audiences and drive meaningful brand interactions across diverse platforms.</p>
+        <div class="cta-inner">
+          <h2 class="cta-title">Tell Me About Your Next Creative Project</h2>
+          <p class="cta-sub">
+            Let's create captivating digital experiences that engage audiences and drive meaningful
+            brand interactions across diverse platforms.
+          </p>
           <div class="cta-buttons">
             <a href="mailto:evan@example.com" class="btn btn-primary">Contact Me</a>
-            <a href="#projects" class="btn btn-outline">See Projects</a>
+            <a href="#projects" class="btn btn-secondary">See Projects</a>
           </div>
         </div>
       </div>
@@ -352,10 +468,10 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span>© 2024 Evan Himawan Saragih</span>
+      <span>© 2026 Evan Himawan Saragih</span>
       <span>Product and UI/UX Designer</span>
     </div>
   </footer>
