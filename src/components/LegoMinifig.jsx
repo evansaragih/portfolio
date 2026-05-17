@@ -340,8 +340,8 @@ export default function LegoMinifig({
       restitution={0.08} friction={0.9} linearDamping={0.6} angularDamping={0.95} lockRotations>
       <CuboidCollider args={[0.72, 2.2, 0.52]} position={[0, -0.05, 0]} />
 
-      {/* ── Customise button floats above head ── */}
-      <Html position={[0, 3.0, 0]} center>
+      {/* ── Customise button — beside minifig on the left ── */}
+      <Html position={[-1.8, 0.4, 0]} center>
         <button onClick={(e) => { e.stopPropagation(); onTogglePanel?.(); }} title="Customise"
           style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(255,255,255,0.8)',
             background: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', cursor: 'pointer',

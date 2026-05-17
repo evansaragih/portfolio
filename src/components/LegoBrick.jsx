@@ -10,6 +10,12 @@ const STUD_R = 0.18;
 const STUD_H = 0.12;
 const BRICK_H = 0.48;
 
+// World-space drag clamp — keeps kinematic bricks inside the visible hero bounds
+const DRAG_X_MIN = -5.5;
+const DRAG_X_MAX = 5.5;
+const DRAG_Y_MIN = -3.2;
+const DRAG_Y_MAX = 3.6;
+
 export default function LegoBrick({ id, color, position, studCols = 2, studRows = 2, label, onSnap, dropZoneRef, startFixed = false }) {
   const rbRef = useRef(null);
   const grabbed = useRef(false);
@@ -17,13 +23,20 @@ export default function LegoBrick({ id, color, position, studCols = 2, studRows 
   const [isGrabbed, setIsGrabbed] = useState(false);
   const dragPlaneZ = useRef(0);
   const targetPos = useRef(null);
-  const moveListenerRef = useRef(null);
+  const listenersRef = useRef({ move: null, up: null });
   const { camera, gl } = useThree();
 
   useEffect(() => {
     if (!startFixed || !rbRef.current) return;
     rbRef.current.setBodyType(BodyType.Fixed, true);
   }, [startFixed]);
+
+  // Cleanup listeners on unmount
+  useEffect(() => () => {
+    const { move, up } = listenersRef.current;
+    if (move) window.removeEventListener('pointermove', move);
+    if (up)   window.removeEventListener('pointerup',   up);
+  }, []);
 
   const brickW = studCols * 0.96;
   const brickD = studRows * 0.96;
@@ -46,7 +59,7 @@ export default function LegoBrick({ id, color, position, studCols = 2, studRows 
     return cx >= r.left && cx <= r.right && cy >= r.top && cy <= r.bottom;
   }, [dropZoneRef]);
 
-  // Follow cursor every frame + subtle float when grabbed
+  // Apply kinematic position every frame
   useFrame(() => {
     if (!grabbed.current || !rbRef.current || !targetPos.current) return;
     const t = performance.now() * 0.002;
@@ -57,56 +70,50 @@ export default function LegoBrick({ id, color, position, studCols = 2, studRows 
     });
   });
 
-  // Cleanup on unmount
-  useEffect(() => () => {
-    if (moveListenerRef.current) window.removeEventListener('pointermove', moveListenerRef.current);
-  }, []);
-
-  const handleClick = useCallback((e) => {
+  const handlePointerDown = useCallback((e) => {
     e.stopPropagation();
     if (!rbRef.current) return;
 
-    // First click on a pedestal brick: break it free, don't grab yet
+    // First press on a pedestal brick: break it free, don't drag yet
     if (!releasedRef.current) {
       releasedRef.current = true;
       rbRef.current.setBodyType(BodyType.Dynamic, true);
       return;
     }
 
-    if (!grabbed.current) {
-      // ── GRAB ──
-      grabbed.current = true;
-      setIsGrabbed(true);
+    // GRAB
+    grabbed.current = true;
+    setIsGrabbed(true);
 
-      const pos = rbRef.current.translation();
-      dragPlaneZ.current = pos.z;
-      targetPos.current = { x: pos.x, y: pos.y };
+    const pos = rbRef.current.translation();
+    dragPlaneZ.current = pos.z;
+    targetPos.current = { x: pos.x, y: pos.y };
 
-      rbRef.current.setBodyType(BodyType.KinematicPositionBased, true);
-      rbRef.current.setLinvel({ x: 0, y: 0, z: 0 }, true);
-      rbRef.current.setAngvel({ x: 0, y: 0, z: 0 }, true);
+    rbRef.current.setBodyType(BodyType.KinematicPositionBased, true);
+    rbRef.current.setLinvel({ x: 0, y: 0, z: 0 }, true);
+    rbRef.current.setAngvel({ x: 0, y: 0, z: 0 }, true);
 
-      const onMove = (ev) => {
-        const world = getWorldPos(ev.clientX, ev.clientY, dragPlaneZ.current);
-        if (world) targetPos.current = { x: world.x, y: world.y };
-      };
-      moveListenerRef.current = onMove;
-      window.addEventListener('pointermove', onMove);
-    } else {
-      // ── DROP ──
+    const onMove = (ev) => {
+      const world = getWorldPos(ev.clientX, ev.clientY, dragPlaneZ.current);
+      if (world) {
+        targetPos.current = {
+          x: Math.max(DRAG_X_MIN, Math.min(DRAG_X_MAX, world.x)),
+          y: Math.max(DRAG_Y_MIN, Math.min(DRAG_Y_MAX, world.y)),
+        };
+      }
+    };
+
+    const onUp = (ev) => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      listenersRef.current = { move: null, up: null };
+
       grabbed.current = false;
       setIsGrabbed(false);
 
-      if (moveListenerRef.current) {
-        window.removeEventListener('pointermove', moveListenerRef.current);
-        moveListenerRef.current = null;
-      }
+      if (!rbRef.current) return;
 
-      // Check drop zone using event position
-      const clientX = e.clientX ?? e.nativeEvent?.clientX ?? 0;
-      const clientY = e.clientY ?? e.nativeEvent?.clientY ?? 0;
-
-      if (isOverDropZone(clientX, clientY)) {
+      if (isOverDropZone(ev.clientX, ev.clientY)) {
         rbRef.current.setBodyType(BodyType.Fixed, true);
         rbRef.current.setLinvel({ x: 0, y: 0, z: 0 }, true);
         onSnap?.(id);
@@ -114,7 +121,11 @@ export default function LegoBrick({ id, color, position, studCols = 2, studRows 
       }
 
       rbRef.current.setBodyType(BodyType.Dynamic, true);
-    }
+    };
+
+    listenersRef.current = { move: onMove, up: onUp };
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
   }, [getWorldPos, id, isOverDropZone, onSnap]);
 
   return (
@@ -130,7 +141,7 @@ export default function LegoBrick({ id, color, position, studCols = 2, studRows 
       <CuboidCollider args={[brickW / 2, (BRICK_H + STUD_H) / 2, brickD / 2]} />
 
       <group
-        onClick={handleClick}
+        onPointerDown={handlePointerDown}
         style={{ cursor: isGrabbed ? 'grabbing' : 'grab' }}
       >
         <mesh castShadow receiveShadow>

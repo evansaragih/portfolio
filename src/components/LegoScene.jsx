@@ -7,19 +7,19 @@ import LegoMinifig from './LegoMinifig.jsx';
 
 // Pedestal at x=3.5 (right-center), extends x≈2.54–4.46.
 const PEDESTAL_DEFS = [
-  { id: 'ped1a', color: '#1e3a5f', position: [3.5, -3.2, 0], studCols: 2, studRows: 2, startFixed: true },
-  { id: 'ped2a', color: '#3B82F6', position: [3.5, -2.6, 0], studCols: 2, studRows: 2, startFixed: true },
+  { id: 'ped2a', color: '#3B82F6', position: [3.5, -3.2, 0], studCols: 2, studRows: 2, startFixed: true },
 ];
 
-// 4 bricks spaced ≥2.2 units apart in x — no physics pile-ups.
-// Left of pedestal (right edges ≤2.36): x = -3.0, -0.8, 1.4
-// Right of pedestal (left edge ≥4.54):  x = 5.5
+// Neat pyramid stack on the far left — intentionally placed, gets smaller going up.
+// One lone brick slightly to the right for asymmetry without clutter.
+// All startFixed: click any brick to release it.
 const BRICK_DEFS = [
-  { id: 'b1', color: '#1A1A2E', position: [-3.0, -3.2,  0.2], studCols: 2, studRows: 2 },
-  { id: 'b2', color: '#F97316', position: [-0.8, -3.2, -0.3], studCols: 2, studRows: 2 },
-  { id: 'b3', color: '#EAB308', position: [ 1.4, -3.2,  0.5], studCols: 2, studRows: 2 },
-  { id: 'b4', color: '#22C55E', position: [ 5.5, -3.2, -0.2], studCols: 2, studRows: 2 },
+  { id: 'b1', color: '#306bea', position: [-5.0, -3.2,  0.0], studCols: 2, studRows: 2, startFixed: true }, // blue   2×2 — base
+  { id: 'b2', color: '#22C55E', position: [-5.0, -2.6,  0.0], studCols: 2, studRows: 1, startFixed: true }, // green  2×1 — middle
+  { id: 'b3', color: '#F97316', position: [-5.0, -2.0,  0.0], studCols: 1, studRows: 1, startFixed: true }, // orange 1×1 — top
+  { id: 'b4', color: '#EAB308', position: [-3.0, -3.2,  0.1], studCols: 1, studRows: 2, startFixed: true }, // yellow 1×2 — floor offset
 ];
+
 
 function Scene({ dropZoneRef, onBrickSnapped, minifigState, onTogglePanel }) {
   const [snappedIds, setSnappedIds] = useState(new Set());
@@ -89,7 +89,7 @@ function Scene({ dropZoneRef, onBrickSnapped, minifigState, onTogglePanel }) {
         </RigidBody>
 
         {/* Right wall */}
-        <RigidBody type="fixed" position={[6.5, 0, 0]}>
+        <RigidBody type="fixed" position={[7.0, 0, 0]}>
           <CuboidCollider args={[0.1, 12, 10]} />
         </RigidBody>
 

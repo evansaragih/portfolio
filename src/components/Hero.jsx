@@ -102,137 +102,59 @@ export default function Hero() {
         />
       </div>
 
-      {/* Glass card — floats above canvas */}
+      {/* Hero text — floats above canvas */}
       <div
         className="relative flex items-center h-full"
         style={{ zIndex: 20, pointerEvents: 'none' }}
       >
         <div className="container" style={{ pointerEvents: 'none' }}>
-          <div
-            className="rounded-3xl p-8 max-w-lg"
-            style={{
-              background: 'rgba(255,255,255,0.40)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-              border: '1px solid rgba(255,255,255,0.60)',
-              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.18)',
-              pointerEvents: 'auto',
-            }}
-          >
-            {/* Eyebrow */}
-            <p
-              className="text-xs font-semibold tracking-widest uppercase mb-4"
-              style={{ color: '#6B7280', fontFamily: 'Satoshi, sans-serif' }}
-            >
-              Hello, I'm Evan
-            </p>
+          <div className="p-8 max-w-lg" style={{ pointerEvents: 'auto' }}>
 
-            {/* Headline */}
-            <h1
-              className="mb-4 leading-tight"
-              style={{
-                fontFamily: 'Instrument Serif, serif',
-                fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-                fontWeight: 400,
-                color: '#17242a',
-              }}
-            >
-              Building scalable products,{' '}
-              <span
-                ref={dropZoneRef}
-                className="inline-block px-3 py-1 rounded-xl align-middle"
+            {/* h1 + paragraph share width — inline-flex column sizes to h1's natural width */}
+            <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'stretch', marginBottom: '2rem' }}>
+              <h1
+                className="mb-4 leading-tight"
                 style={{
-                  border: '3px dashed #9CA3AF',
-                  minWidth: '120px',
-                  minHeight: '2.2rem',
-                  verticalAlign: 'middle',
-                  transition: 'border-color 0.2s, background 0.2s',
-                  background: snapped ? 'rgba(59,130,246,0.08)' : 'transparent',
-                  borderColor: snapped ? '#3B82F6' : '#9CA3AF',
-                }}
-              >
-                {snapped ? (
-                  <span
-                    style={{
-                      animation: 'fadeIn 0.4s ease forwards',
-                      color: '#3B82F6',
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    one by one.
-                  </span>
-                ) : (
-                  <span style={{ color: '#9CA3AF', fontSize: '0.75em' }}>drop brick</span>
-                )}
-              </span>
-            </h1>
-
-            {/* Sub-copy */}
-            <p
-              className="mb-8 leading-relaxed"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4f7b90',
-                maxWidth: '380px',
-              }}
-            >
-              UI/UX Designer & Product Manager crafting cohesive design systems and
-              modular interfaces — one component at a time.
-            </p>
-
-            {/* CTA buttons */}
-            <div className="flex gap-3 flex-wrap">
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-150 active:translate-y-1.5"
-                style={{
-                  fontFamily: 'Satoshi, sans-serif',
-                  background: 'linear-gradient(180deg, #17242a 0%, #4f7b90 100%)',
-                  boxShadow: '0 6px 0 #000000',
-                  transition: 'transform 0.1s, box-shadow 0.1s',
-                }}
-                onMouseDown={(e) => {
-                  e.currentTarget.style.transform = 'translateY(6px)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-                onMouseUp={(e) => {
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '0 6px 0 #000000';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '0 6px 0 #000000';
-                }}
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-150"
-                style={{
-                  fontFamily: 'Satoshi, sans-serif',
-                  background: 'linear-gradient(180deg, #ffffff 0%, #dce7ec 100%)',
+                  fontFamily: 'Instrument Serif, serif',
+                  fontSize: '80px',
+                  fontWeight: 400,
                   color: '#17242a',
-                  boxShadow: '0 6px 0 #b0bec8',
-                  transition: 'transform 0.1s, box-shadow 0.1s',
-                }}
-                onMouseDown={(e) => {
-                  e.currentTarget.style.transform = 'translateY(6px)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-                onMouseUp={(e) => {
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '0 6px 0 #b0bec8';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '0 6px 0 #b0bec8';
+                  whiteSpace: 'nowrap',
                 }}
               >
-                Contact Me
+                Evan Himawan Saragih
+              </h1>
+
+              <p
+                className="leading-relaxed"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '18px',
+                  color: '#4f7b90',
+                }}
+              >
+                UI/UX Designer and Product Designer<br />4+ years designing SaaS platforms with a focus on design systems and product thinking.
+              </p>
+            </div>
+
+            {/* CTA buttons — Figma nodes 2287:1550 & 2287:1583 */}
+            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              {/* Contact Me — 3 LEGO studs, dark navy */}
+              <a href="#contact" className="hero-btn hero-btn--dark">
+                <div className="hero-btn-stud" style={{ left: 4 }} />
+                <div className="hero-btn-stud" style={{ left: 41.71 }} />
+                <div className="hero-btn-stud" style={{ left: 80.58 }} />
+                <span className="hero-btn-label">Contact Me</span>
+              </a>
+              {/* See Projects — 3 LEGO studs, blue */}
+              <a href="#projects" className="hero-btn hero-btn--blue">
+                <div className="hero-btn-stud" style={{ left: 4 }} />
+                <div className="hero-btn-stud" style={{ left: 41.71 }} />
+                <div className="hero-btn-stud" style={{ left: 80.58 }} />
+                <span className="hero-btn-label">See Projects</span>
               </a>
             </div>
+
           </div>
         </div>
       </div>
